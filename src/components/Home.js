@@ -1,8 +1,8 @@
 import React from "react";
 function Home() {
   return (
-    <div className="w-full sm:w-[400px]  p-3 mx-auto shadow-[0_0px_10px_rgba(0,0,0,0.253)] transition-all rounded-lg">
-      <div className="flex flex-col space-y-3">
+    <div className="w-full h-screen sm:h-[480px] sm:w-[400px] p-6 sm:p-3 mx-auto shadow-[0_0px_10px_rgba(0,0,0,0.253)] transition-all sm:rounded-lg">
+      <div className="flex flex-col space-y-3 h-full">
         <div className="flex justify-between items-center">
           <div className="flex space-x-2">
             <img src="/favicon.ico" alt="" className="rounded-full w-12" />
@@ -38,8 +38,8 @@ function Home() {
         <div className="flex py-2">
         <input type="text" className="px-3 py-2 outline-0 border-[1px]  border-[#ced4da] focus:border-blue-500 rounded-md w-full" placeholder="Enter Name to Search" />
         </div>  
-        <div className="flex flex-col space-y-2 h-64 overflow-auto">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col h-full overflow-auto">
+        <div className="flex justify-between items-center hover:bg-gray-100 cursor-pointer transition-colors py-2 last:border-b-0 border-b">
           <div className="flex space-x-2">
             <img src="/favicon.ico" alt="" className="rounded-full w-12" />
             <div>
@@ -49,7 +49,7 @@ function Home() {
           </div>
           <div className="rounded-full bg-blue-600 text-white px-2.5 py-0.5">1</div>
         </div>
-          <hr />
+          
         </div>
       </div>
     </div>

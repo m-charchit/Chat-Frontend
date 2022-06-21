@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
 function Chat() {
+  const [showPopup, setShowPopup] = useState(false)
+  const [coordinates, SetCoordinates] = useState({x:null,y:null})
+  const popup = (e) => {
+    SetCoordinates({x:e.screenX,y:e.screenY})
+    setShowPopup(true)
+  }
   return (
+    <>
+    {showPopup && <Dropdown coordinates={coordinates} />}
     <div className="w-full h-screen sm:h-[480px] sm:w-[400px] mx-auto shadow-[0_0px_10px_rgba(0,0,0,0.253)] transition-all sm:rounded-lg">
       <div className="flex flex-col  h-full">
         <div className="flex justify-between items-center border-b px-3 py-2 shadow">
           <div className="flex space-x-2 items-center">
-            <i class="fas fa-arrow-left"></i>
+            <Link to="/"><i className="fas fa-arrow-left"></i></Link>
             <img src="/favicon.ico" alt="" className="rounded-full w-12 h-12" />
             <div>
               <p className="font-bold text-2xl">Charchit</p>
@@ -20,7 +30,7 @@ function Chat() {
             <div className="flex flex-col px-3 py-2.5 rounded-r-2xl rounded-b-2xl bg-black max-w-[75%]  text-white hover:shadow-lg shadow-md transition-shadow duration-500">
               <div className="flex justify-between space-x-3">
                 <span className="">Lorem ipsum dolor sit amet.</span>
-                <i className="fa-solid fa-angle-down text-xs cursor-pointer"></i>
+                <i className="fa-solid fa-angle-down text-xs cursor-pointer" onClick={popup}></i>
               </div>
               <p className="text-right font-semibold text-[10px]">Oct 14 22:03</p>
             </div>
@@ -37,16 +47,17 @@ function Chat() {
         </div>
         <div className="flex ">
           <input
-            class="text-gray-700 shadow border border-gray-300 focus:outline-none focus:shadow-outline py-2 px-3 w-full"
+            className="text-gray-700 shadow border border-gray-300 focus:outline-none focus:shadow-outline py-2 px-3 w-full"
             type="text"
             placeholder="Message..."
           />
           <button className="bg-black px-3 text-white">
-            <i class="fa-solid fa-paper-plane"></i>
+            <i className="fa-solid fa-paper-plane"></i>
           </button>
         </div>
       </div>
     </div>
+    </>
   );
 }
 

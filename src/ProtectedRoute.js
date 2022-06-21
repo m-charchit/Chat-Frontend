@@ -4,7 +4,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 const ProtectedRoute = (props) => {
 
     // @ts-ignore
-    const {isLoggedIn} = {isLoggedIn:true}
+    const {isLoggedIn} = {isLoggedIn:false}
     if (!props.logRegPage){
     return isLoggedIn ? <Outlet /> : <Navigate to="/login" />;
     } else if(props.logRegPage === true) {
